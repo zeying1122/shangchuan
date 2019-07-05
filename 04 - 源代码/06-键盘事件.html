@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body {
+      /* 阻止用户选中文字 */
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" id="txt">
+</body>
+<script>
+/*
+  键盘事件
+    就是用户的键盘操作
+      keydown
+        键盘的按键按下
+      keyup
+        键盘的按键松开/弹起
+*/
+let txt = document.querySelector('#txt');
+
+// 注册键盘的按下事件
+// txt.onkeydown = function(){
+//   console.log('触发了键盘的按下事件');
+// }
+// 注册键盘的松开事件
+// txt.onkeyup = function(){
+//   console.log('键的按键松开');
+// }
+
+
+// 判断端拿下的是哪些按键
+// 获取键盘按下的按键
+txt.onkeydown = function(e){
+  // console.log(e);
+  // 在事件对象中，有三个属性可以证明按下的按键是哪一个
+  // key code keyCode
+  // 一般推荐使用 keCode ,因为得到的是一个数字
+  // 而我们在计算机中，其实本质都是二进制，比较数字比比较字符串效率会更高
+  // console.log(e.keyCode);
+
+  // console.log(e.ctrlKey);
+
+  // if(e.ctrlKey && e.keyCode === 13){
+  //   console.log('就是同事按下了ctrl和回车');
+  // }
+  // 判断ctrl + c --- > 如何阻止别人复制 ：1.阻止右键，2.阻止用户选中文字 3.阻止ctrl+c 
+
+  console.log(e);
+}
+</script>
+</html>

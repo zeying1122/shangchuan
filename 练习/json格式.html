@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="存" id="save">
+    <input type="button" value="取" id="get">
+</body>
+<script>
+  let obj={
+      name:'狗蛋',
+      age:12,
+      gender:'男'
+  }
+  let jsonStr=JSON.stringify(obj);
+  let btn_save=document.querySelector('#save');
+  btn_save.onclick=()=>{
+      localStorage.setItem('person',jsonStr);
+  };
+   let btn_get=document.querySelector('#get');
+   btn_get.onclick=()=>{
+       let res=localStorage.getItem('person');
+       let obj=JSON.parse(res);
+       console.log(obj);
+
+   }
+</script>
+</html>

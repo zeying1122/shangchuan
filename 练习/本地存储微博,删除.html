@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>微博发布效果</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .weibo {
+            width: 600px;
+            border: 1px solid #ccc;
+
+            margin: 100px auto;
+            padding: 10px;
+
+        }
+
+        .weibo-text {
+            width: 590px;
+            height: 140px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            outline: none;
+            resize: none;
+        }
+
+        .weibo-text:focus {
+            border-color: #f60;
+        }
+
+        .weibo-btn {
+            width: 80px;
+            height: 30px;
+            background-color: #f90;
+            color: #fff;
+            border: 0 none;
+            margin-top: 5px;
+            border-radius: 3px;
+            cursor: pointer;
+            outline: 0 none;
+        }
+
+        .weibo-list {
+            padding-top: 10px;
+        }
+
+        .weibo-list li {
+            font-size: 14px;
+            line-height: 30px;
+            border-bottom: 1px dotted #ccc;
+            overflow: hidden;
+        }
+
+        .weibo-list li p {
+            float: left;
+        }
+
+        .weibo-list li span {
+            float: right;
+            cursor: pointer;
+        }
+
+        .weibo-list li input {
+            height: 24px;
+            line-height: 24px;
+            width: 300px;
+            font-size: 14px;
+            border: 0 none;
+        }
+        .time {
+            margin-right: 10px;
+            font-style: normal;
+            float: right;
+        }
+    </style>    
+</head>
+
+<body>
+<div class="weibo">
+    <textarea class="weibo-text"></textarea>
+    <input class="weibo-btn" value="发布" type="button">
+    <ul class="weibo-list">
+        <!-- <li>
+            <p class="content">快来收了这九款用上就停不下来的应用吧！！</p> 
+            <span class="del">删除</span>
+            <span class="time">2019</span>
+        </li> -->
+    </ul>
+</div>
+</body>
+<script src="./kits.js"></script>
+<script>
+    /*
+效果分为4个
+把一个案例拆分称为多个小的功能.每个功能一点一点的完成.就把打的项目完成了
+1.在一开始加载页面的时候,会读取本地数据.根据本地数据生成li
+2.点击发布
+3.ctrl+回车发布
+4.点击删除
+*/
+
+/*因为如果不点击发布.是没有本地数据的.所以先做点击发布
+点击发布功能
+会在页面上看到一个新的li.在本地数据里面,多一条数据*/
+/*步骤:
+1.获取按钮
+2.注册点击事件
+3.新建li.添加到ul里面
+4.把数据存储到本地存储里面
+*/
+let text=document.querySelector('.weibo-text');
+let ul=document.querySelector('.weibo-list');
+let btn=document.querySelector('.weibo-btn');
+
+//有一个用去存储所有的法币的微博的数组
+//let wbArr=[];   现在不能直接给一个空数组了.因为有可能已经有了数据了.直接用空数组,添加新数据覆盖.会把旧的数据直接去掉了
+
+
+</script>
+
+</html>

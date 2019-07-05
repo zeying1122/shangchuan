@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+/*
+  localStorage
+    作用： 在浏览器里面存储一些数据，实现数据的本地化
+    怎么用： 
+      localStorage.setItem(key,value);
+
+      localStorage.getItem(key);
+
+      只能存储字符串，取出来如果没有对应的键，得到是null
+
+  JSON
+    一种数据格式
+    能够把对象或者数组，转换为可以被localStorage存储字符串
+    用法：
+      json格式
+        1.语法和js的对象很接近
+        2.键必须使用双引号包起来，只有数字和字符串两种数据类型，而且字符串也是必须使用双引号包起来
+        3.其他就和js的对象一样
+
+      { "name":"狗蛋","age":12 }
+    专门将js里面的对象转换为json格式的字符串的方法
+      JSON.stringify(对象)
+        返回一个json格式的字符串
+    把从localStorage里面取出的json格式字符串，转换为 对象
+      JSON.parse(json格式字符串)
+      必须注意：如果给的字符串不满足json格式，是无法解析成功
+
+  本地化的微博发布
+    点击按钮的时候
+      1.需要和昨天一样，创建一个新的li
+      2.把新建的微博的数据，存储到本地数据里面
+        先把新旧数据合并
+          判断是否有旧数据，如果有，直接使用，如果没有，就给一个空数组
+    在页面加载的时候，把旧数据，读取出来，遍历数组，生成li就行了
+      我们采用的是innerHTML的方式生成
+*/
+</script>
+</html>

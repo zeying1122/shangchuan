@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <input type="button" value="存" id="save">
+  <input type="button" value="取" id="get">
+</body>
+<script>
+  let btn_save = document.querySelector('#save');
+  btn_save.onclick = function(){
+    // localStorage的存储非常简单 ： localStorage.setItem(key,value);
+    // 作用就是把一个键值对存储到本地数据里面
+    // localStorage.setItem('aaaa','狗蛋')
+
+    // 往localStorage里面存储一个对象
+    let obj = {
+      name : '狗蛋',
+      age : 12
+    }
+
+    localStorage.setItem('person',obj);
+    // 注意： localStorage只能存储 字符串 类型的数据，如果你给的不是字符串，它会自动的帮你调用对象的toString() 方法 ，就会得到一个可能和你想象中不一样的结果，如果就想想localStorage里面存储对象，需要先把该对象转换为 JSON 格式
+  }
+
+  // 点击取的按钮，把存储在里面的数据，获取出来
+  let btn_get = document.querySelector('#get');
+  btn_get.onclick = function(){
+    // 把数据从localStorage里面取出来，  localStorage.getItem(key);
+    let aaaa = localStorage.getItem('aaaa');
+    console.log(aaaa);
+    // 
+    let person = localStorage.getItem('person');
+    console.log(person);
+
+    let b = localStorage.getItem('b');
+    console.log(b);
+  }
+
+</script>
+</html>

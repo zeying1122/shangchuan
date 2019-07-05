@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function XiaoNa() {
+        this.ask = function () {
+            let msg = prompt("你好，我是传智小娜，你的语音助手~~~~~~~\n" +
+                "输入《编号》或《关键词》选择功能，输入q退出聊天\n" +
+                " 1.计算《总和》\n" +
+                " 2.获取《时间》\n" +
+                " 3.讲个《笑话》\n");
+            return msg;
+        };
+        //计算总和
+        this.zonghe = () => {
+            let numbers = prompt('请输入你要求和的数字，以逗号隔开，例如： 1,2,3,4');
+            let arr = numbers.split(',');
+            let sum = 0;
+            for (let i = 0; i < arr.length; i++) {
+                sum += parseFloat(arr[i]);
+            }
+            alert('你要计算的总和计算出来了，是：' + sum);
+        };
+        this.getDate = () => {
+            let date = new Date();
+            let year = date.getFullYear();
+            let month = date.getMonth();
+            let day = date.getDate();
+            let hour = date.getHours();
+            let minute = date.getMinutes();
+            let second = date.getSeconds();
+            if (month < 10) {
+                month = '0' + month;
+            }
+            day = day < 10 ? '0' + day : day;
+            hour = hour < 10 ? '0' + hour : hour;
+            minute = minute < 10 ? '0' + minute : minute;
+            second = second < 10 ? '0' + second : second;
+            let time = year + '-' + month + '-' + day + '-' + hour + ':' + minute + ':' + second;
+            alert('当前的时间是:' + time);
+        };
+        this.sayJoke = () => {
+            let joke = ['笑话1', '笑话2', '笑话3', '笑话4', '笑话5', '笑话6'];
+            let r = Math.floor(Math.random() * joke.length);
+            alert(joke[r]);
+        }
+        this.menbi = () => {
+            alert('您的话小娜没有听懂.请重新说一次');
+        }
+
+
+    }
+
+
+
+    let xiaona = new XiaoNa();
+    while (true) {
+
+        //小娜提示输入
+        let msg = xiaona.ask();
+
+
+        if (msg === 'q') {
+            alert('你已经不爱小娜了吗?');
+            break;
+        }
+        switch (msg) {
+            case '1':
+            case '总和':
+                xiaona.zonghe();
+                break;
+
+            case '2':
+            case '时间':
+                xiaona.getDate();
+                break;
+
+
+
+            case '3':
+            case '笑话':
+                xiaona.sayJoke();
+                break;
+
+
+            default:
+                xiaona.menbi();
+
+                break;
+
+
+        }
+    }
+</script>
+
+</html>

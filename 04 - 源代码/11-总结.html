@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+/*
+  本地存储
+    localStorage.setItem(key,value) - 把字符串，存储到本地数据里面
+    localStorage.getItem(key) - 根据当初存的键，取出对应的数据
+
+  JSON
+    就是一种特殊的格式
+      将对象转换为json格式字符串
+        JSON.stringify(对象)
+      将json格式字符串转换为对象
+        JSON.parse(json格式字符串);
+  实现了本地微博发布
+    点击的时候，把数据存储进去
+    在刷新的时候，把数据读取出来，生成列表
+    点击删除的时候，把对应的li删除，把对应的本地数据删除
+      使用id对应
+        点击生成的时候，给一个唯一的id
+        生成列表的时候，把唯一的id存到对应的删除按钮身上
+        点击删除的时候获取唯一的id，到本地数据里面对比，如果id一致，就删除
+    组合键发布
+  键盘事件
+    keydown
+      键盘按下的时候触发
+    keyup
+      键盘弹起的时候触发
+    事件对象.keyCode
+    事件对象.ctrlKey
+
+
+    事件对象.shiftKey
+    事件对象.altKey
+
+  排他
+    - 解决什么问题： 跟其他妖艳贱货不一样
+      - 只有一部分特殊的和其他平常的不一样
+      - 先把所有的回归普通
+      - 把特殊的进行设置
+
+  轮播图
+    offsetWidth/offsetHeight - 元素的实际宽高
+*/
+</script>
+</html>

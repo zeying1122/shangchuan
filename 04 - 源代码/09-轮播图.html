@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .box {
+      width: 730px;
+      height: 454px;
+      padding: 8px;
+      border: 1px solid green;
+      margin: 100px auto;
+    }
+
+    .inner {
+      position: relative;
+      overflow: hidden;
+      height: 454px;
+    }
+
+    #imglist {
+      width: 700%;
+      position: absolute;
+      left: 0;
+      transition: left 300ms linear;
+    }
+
+    li {
+      float: left;
+    }
+
+    .list {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      margin-left: -85px;
+    }
+
+    .list i {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: #fff;
+      color: #333;
+      float: left;
+      font-style: normal;
+      line-height: 20px;
+      font-size: 14px;
+      text-align: center;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    .list i:last-child {
+      margin-right: 0;
+    }
+
+    .list i.current {
+      background-color: skyblue;
+      color: #fff;
+    }
+
+    .arrow {
+      position: absolute;
+      width: 100%;
+      top: 50%;
+      margin-top: -30px;
+    }
+
+    .arrow-left,
+    .arrow-right {
+      width: 30px;
+      height: 60px;
+      position: absolute;
+      font: 20px/60px "consolas";
+      color: #fff;
+      background-color: rgba(0, 0, 0, .3);
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .arrow-right {
+      right: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box" id="box">
+    <div class="inner" id="inner">
+      <ul id="imglist">
+        <li><a href="#"><img src="images/1.jpg" alt=""></a></li>
+        <li><a href="#"><img src="images/2.jpg" alt=""></a></li>
+        <li><a href="#"><img src="images/3.jpg" alt=""></a></li>
+        <li><a href="#"><img src="images/4.jpg" alt=""></a></li>
+        <li><a href="#"><img src="images/5.jpg" alt=""></a></li>
+        <li><a href="#"><img src="images/6.jpg" alt=""></a></li>
+      </ul>
+      <div class="list">
+        <i class="current">1</i>
+        <i>2</i>
+        <i>3</i>
+        <i>4</i>
+        <i>5</i>
+        <i>6</i>
+      </div>
+      <div class="arrow">
+        <span class="arrow-left">&lt;</span>
+        <span class="arrow-right">&gt;</span>
+      </div>
+    </div>
+  </div>
+
+</body>
+<script>
+  /*
+    1.鼠标移入圆点，实现切换
+    2.点击左右按钮，实现轮播  
+    3.自动轮播
+    4.鼠标移入轮播图，就停止自动轮播
+    5.鼠标移出轮播图，就继续自动轮播
+  */
+
+  window.onload = function () {
+    // 实现序号切换轮播
+    // 1.1获取元素
+    let circles = document.querySelectorAll('.list>i');
+    // 获取ul
+    let ul = document.querySelector('#imglist');
+
+    // 要获取图片的宽度 - 要在静态资源加载完毕之后获取
+    let img = document.querySelector('#imglist img');
+    // console.log(img.offsetWidth);
+    // 1.2注册鼠标移入事件
+    circles.forEach((e, i) => {
+      e.onmouseover = function () {
+        // 让图片切换到对应的需要的那一张 ：动画的形式左右移动 = transition + left
+        // 其实切换图片，是在移动ul，把ul的位置移动了，通过overflow:hidden把其他不需要显示的部分隐藏起来
+        // 要做的事情，是要移动ul，下一次移动该到哪里呢？发现一个规律： ul向左边移动的距离： = 圆点的索引 * 图片的宽度 * -1
+        // 算出ul的位置，设置给ul即可
+        let target = i * img.offsetWidth * -1;
+        ul.style.left = target + 'px';
+        // 让圆点的样式进行排他的切换
+        circles.forEach(e=>{
+          e.classList.remove('current');
+        })
+        this.classList.add('current');
+      }
+    })
+  }
+</script>
+
+</html>

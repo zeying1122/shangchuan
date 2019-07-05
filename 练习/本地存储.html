@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="存" id="save">
+    <input type="button" value="取" id="get">
+</body>
+<script>
+let btn_save=document.querySelector('#save');
+  btn_save.onclick=()=>{
+//   localStorage.setItem('aaaa','狗蛋');
+ let obj={
+     name:'对象',
+     age:12
+ }
+ localStorage.setItem('person',obj);
+  };
+
+//   取出来
+let btn_get=document.querySelector('#get');
+btn_get.onclick=()=>{
+    let aaaa=localStorage.getItem('aaaa');
+    console.log(aaaa)
+};
+</script>
+</html>
